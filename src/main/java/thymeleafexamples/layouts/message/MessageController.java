@@ -1,22 +1,16 @@
 package thymeleafexamples.layouts.message;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.*;
-import thymeleafexamples.layouts.account.Account;
-import thymeleafexamples.layouts.account.AccountRepository;
-
-import java.security.Principal;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Tiles Dialect usage example.
  */
 @Controller
-@Secured("ROLE_USER")
 class MessageController {
 
     private MessageRepository messageRepository;
