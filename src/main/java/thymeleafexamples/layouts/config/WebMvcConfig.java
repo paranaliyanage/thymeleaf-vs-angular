@@ -1,8 +1,5 @@
 package thymeleafexamples.layouts.config;
 
-import static org.springframework.context.annotation.ComponentScan.Filter;
-
-import com.google.common.collect.Lists;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
 import org.thymeleaf.extras.tiles2.dialect.TilesDialect;
 import org.thymeleaf.extras.tiles2.spring4.web.configurer.ThymeleafTilesConfigurer;
 import org.thymeleaf.extras.tiles2.spring4.web.view.ThymeleafTilesView;
@@ -26,11 +22,10 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
-
 import org.thymeleaf.templateresolver.UrlTemplateResolver;
 import thymeleafexamples.layouts.Application;
 
-import java.util.Collections;
+import static org.springframework.context.annotation.ComponentScan.Filter;
 
 @Configuration
 @ComponentScan(basePackageClasses = Application.class, includeFilters = @Filter(Controller.class), useDefaultFilters = false)
@@ -78,7 +73,6 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.addTemplateResolver(templateResolver());
         templateEngine.addTemplateResolver(urlTemplateResolver());
-        templateEngine.addDialect(new SpringSecurityDialect());
         templateEngine.addDialect(new TilesDialect());
         templateEngine.addDialect(new LayoutDialect());
         return templateEngine;

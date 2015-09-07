@@ -1,10 +1,16 @@
-Thymeleaf Examples: Layouts
-===========================
- 
-This is an example project containing code used in the "Thymeleaf Layouts" tutorial. The project was created using Spring MVC 4 Quickstart Maven archetype:
+Angular Vs Thymeleaf
+====================
 
-    https://github.com/kolorobot/spring-mvc-quickstart-archetype
- 
-To learn more about Thymeleaf and download latest version please visit:
- 
-    http://www.thymeleaf.org
+Generate this project to compare angular and thymeleaf. Initial project was copied from following location and then modified. Removed spring security related stuff and test classes.
+
+https://github.com/kolorobot/spring-mvc-quickstart-archetype
+
+Same backend is used to compare angular and thymeleaf.
+
+Switch to thymeleaf branch to start the thymeleaf application
+
+Master branch will work with angular.
+
+To start the application simply run,
+mvn clean tomcat7:run
+
