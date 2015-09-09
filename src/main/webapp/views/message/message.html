@@ -1,0 +1,23 @@
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Text</td>
+            <td>Created</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr da-ng-show="messages.empty">
+            <td colspan="4">No messages</td>
+        </tr>
+        <tr data-ng-repeat="message in messages">
+            <td>{{message.id}}</td>
+            <td><a href="#">{{message.title}}</a></td>
+            <td>{{message.text}}</td>
+            <td>{{message.created | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
