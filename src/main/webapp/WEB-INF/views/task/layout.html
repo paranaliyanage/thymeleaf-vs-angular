@@ -32,20 +32,48 @@
 </div>
 <div class="container">
     <div layout:fragment="content">
-        <!-- ============================================================================ -->
-        <!-- This content is only used for static prototyping purposes (natural templates)-->
-        <!-- and is therefore entirely optional, as this markup fragment will be included -->
-        <!-- from "fragments/header.html" at runtime.                                     -->
-        <!-- ============================================================================ -->
-        <h1>Static content for prototyping purposes only</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-            Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-            Phasellus et placerat elit.
-        </p>
 
+        <!--/* Demonstrating layout:include */-->
+
+        <div layout:include="task/alert :: alert" th:with="type='info', header='Info'" th:remove="tag">
+            <!--/* Implements alert content fragment with simple content */-->
+            <th:block layout:fragment="alert-content">
+                <p><em>This is a simple list of tasks!</em></p>
+            </th:block>
+        </div>
+
+        <div layout:include="task/alert :: alert" th:with="type='danger', header='Oh snap! You got an error!'" th:remove="tag">
+            <!--/* Implements alert content fragment with full-blown HTML content */-->
+            <th:block layout:fragment="alert-content">
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+                <p>
+                    <button type="button" class="btn btn-danger">Take this action</button>
+                    <button type="button" class="btn btn-default">Or do this</button>
+                </p>
+            </th:block>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Text</td>
+                <td>Due to</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${tasks.empty}">
+                <td colspan="4">No tasks</td>
+            </tr>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.id}">1</td>
+                <td><a href="#" th:text="${task.title}">Title ...</a></td>
+                <td th:text="${task.text}">Text ...</td>
+                <td th:text="${#calendars.format(task.dueTo)}">July 11, 2012 2:17:16 PM CDT</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <div th:replace="fragments/footer :: footer">&copy; 2014 The Static Templates</div>
 </div>

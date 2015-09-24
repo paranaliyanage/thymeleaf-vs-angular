@@ -36,6 +36,6 @@ class TaskController {
     @RequestMapping(value = "task", method = RequestMethod.GET)
     public String messages(Model model) {
         model.addAttribute("tasks", taskRepository.findAll());
-        return "task/list";
+        return "task/layout";
     }
 }

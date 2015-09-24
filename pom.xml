@@ -117,16 +117,6 @@
             <version>${org.thymeleaf.extras.springsecurity3-version}</version>
         </dependency>
         <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-tiles2</artifactId>
-            <version>${org.thymeleaf.extras.tiles2-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-tiles2-spring4</artifactId>
-            <version>${org.thymeleaf.extras.tiles2-version}</version>
-        </dependency>
-        <dependency>
             <groupId>nz.net.ultraq.thymeleaf</groupId>
             <artifactId>thymeleaf-layout-dialect</artifactId>
             <version>${nz.net.ultraq.thymeleaflayout-version}</version>
